@@ -16,10 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from QuickRow import views
+from django.conf import settings
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+    path('selectSenha/', views.select_senha, name='select senha')
     #path('', include('site.urls')),
 
 ]
+import os
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+STATICFILES_DIRS = (
+  os.path.join(SITE_ROOT, 'static/'),
+)
